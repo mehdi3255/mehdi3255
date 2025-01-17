@@ -4,18 +4,24 @@ class Program
 {
     static void Main()
     {
-        Console.Write("Enter a number (1-7) to get the week: ");
-        int week;
+        Console.Write("Enter a number (1-7) to get the days of the week: ");
+        int day;
 
-        bool isValid = int.TryParse(Console.ReadLine(), out week);
+        bool isValid = int.TryParse(Console.ReadLine(), out day);
 
-        if (!isValid || week < 1 || week > 7)
+        if (!isValid || day < 1 || day > 7)
         {
             Console.WriteLine("Invalid input! Please enter a number between 1 and 7.");
         }
         else
         {
-            Console.WriteLine("This is week " + week);
+            string[] daysOfWeek = { "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday" };
+            
+            Console.WriteLine("Days of the week starting from day " + day + ":");
+            for (int i = day - 1; i < 7; i++)
+            {
+                Console.WriteLine(daysOfWeek[i]);
+            }
         }
     }
 }
